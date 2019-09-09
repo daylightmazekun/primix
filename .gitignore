@@ -1,1 +1,9 @@
+.vscode/*
 
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+/angular-test/node_modules
