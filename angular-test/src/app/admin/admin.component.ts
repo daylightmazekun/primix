@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CourseServiceClient} from "../service/course.service.client";
+import {CourseServiceClient} from "../services/course.service.client";
 import {Course} from "../models/course.model.client";
 
 
@@ -11,5 +11,31 @@ import {Course} from "../models/course.model.client";
 export class AdminComponent implements OnInit {
   constructor(private service: CourseServiceClient){
     this.loadCourses();
+  }
+  newCourse;
+
+  courses: Course[] = [];
+
+  loadCourses() {
+    this.service.findAllCourses().then(courses => this.courses = courses);
+  }
+
+  add() {
+    const courseName = { title: this.newCourse }
+    this.service.createCourse(courseName).then(() => {this.loadCourses(); })
+    this.newCourse = '';
+  }
+
+  // TODO
+  update() {
+  }
+
+  delete(courseId) {
+    console.log("delete course" + courseId);
+    this.service.deleteCourse(courseId)
+    .then(() => { this.loadCourses(); });
+  }
+
+  ngOnInit() {
   }
 }
