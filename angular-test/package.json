@@ -34,7 +34,7 @@
     "handlebars": ">=4.0.0"
   },
   "devDependencies": {
-    "@angular/cli": "^8.3.3",
+    "@angular/cli": "^8.3.4",
     "@angular/compiler-cli": "^4.2.4",
     "@angular/language-service": "^4.2.4",
     "@types/jasmine": "~2.5.53",
