@@ -6,7 +6,7 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Exam {
+public class Exam extends Widget{
 
     private String title;
     private String description;

@@ -18,7 +18,9 @@ public class Widget {
     @ManyToOne
     @JsonIgnore
     private Topic topic;
-
+	@ManyToOne
+	@JsonIgnore
+	private Lesson lesson;
     public  int getId(){
        return id;
     }
@@ -49,5 +51,13 @@ public class Widget {
 
     public void setTopic(Topic topic){
         this.topic = topic;
+    }
+
+    public Lesson getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(Lesson lesson) {
+        this.lesson = lesson;
     }
 }
