@@ -1,5 +1,6 @@
 package com.primix.model.exam;
 
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,56 +8,55 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 @Entity
 public class Course {
-
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private int id;
-   private String title;
-   @ManyToOne
-   @NotFound(action = NotFoundAction.IGNORE)
-   @JsonIgnore
-   private Course course;
-   @OneToMany(mappedBy = "module")
-   @JsonIgnore
-   private List<Lesson> lessons;
-   
-   public List<Lesson> getLessons() {
-       return lessons;
-   }
-
-   public void setLessons(List<Lesson> lessons) {
-       this.lessons = lessons;
-   }
-
-   public int getId(){
-       return id;
-   }
-
-   public void setId (int id){
-       this.id = id;
-   }
-   
-   public String getTitle(){
-       return title;
-   }
-
-   public void setTitle(String title){
-       this.title = title;
-   }
-
-   public Course getCourse(){
-       return course;
-   }
-
-   public void setCourse(Course course){
-       this.course = course;
-   }
+    @Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+	private String title;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date created;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date modified;
+	@OneToMany(mappedBy="course")
+	@JsonIgnore
+	private List<Module> modules;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public Date getCreated() {
+		return created;
+	}
+	public void setCreated(Date created) {
+		this.created = created;
+	}
+	public Date getModified() {
+		return modified;
+	}
+	public void setModified(Date modified) {
+		this.modified = modified;
+	}
+	public List<Module> getModules() {
+		return modules;
+	}
+	public void setModules(List<Module> modules) {
+		this.modules = modules;
+	}
 }
 
 
