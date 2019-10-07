@@ -6,7 +6,7 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class MultipleChoiceQuestion {
+public class MultipleChoiceQuestion extends Question{
     private int correctOption;
     @OneToMany(mappedBy = "multipleChoice")
     @JsonIgnore
