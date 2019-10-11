@@ -2,7 +2,12 @@ package com.primix.service;
 
 import java.util.List;
 import java.util.Optional;
-
+import com.primix.model.exam.Lesson;
+import com.primix.model.exam.Topic;
+import com.primix.respositories.CourseRepository;
+import com.primix.respositories.LessonRepository;
+import com.primix.respositories.ModuleRepository;
+import com.primix.respositories.TopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,12 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.webdev.model.Lesson;
-import com.example.webdev.model.Topic;
-import com.example.webdev.repositories.CourseRepository;
-import com.example.webdev.repositories.LessonRepository;
-import com.example.webdev.repositories.ModuleRepository;
-import com.example.webdev.repositories.TopicRepository;
+
 
 
 @RestController
