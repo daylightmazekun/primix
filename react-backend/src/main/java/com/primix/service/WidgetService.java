@@ -29,7 +29,7 @@ public class WidgetService {
 	@GetMapping("/api/topic/{topic}/widget")
 	public List<Widget> findAllWidgetsForLesson(@PathVariable("topicId") int topicId) {
 		Optional<Topic> optionalTopic = topicRepository.findById(topicId);
-		if(optionalTopic.isPresent()) {
+		if (optionalTopic.isPresent()) {
 			Topic topic = optionalTopic.get();
 			return topic.getWidgets();
 		}
@@ -37,10 +37,9 @@ public class WidgetService {
 	}
 
 	@PostMapping("/api/widget/save")
-	public void saveAllWidgets(@RequestBody
-			List<Widget> widgets) {
+	public void saveAllWidgets(@RequestBody List<Widget> widgets) {
 		repository.deleteAll();
-		for(Widget widget: widgets) {
+		for (Widget widget : widgets) {
 			repository.save(widget);
 		}
 	}
@@ -49,16 +48,17 @@ public class WidgetService {
 	public List<Widget> findAllWidgets() {
 		return (List<Widget>) repository.findAll();
 	}
+
 	@PostMapping("/api/lesson/{lessonId}/widget")
 	public Widget createWidgetForLesson(@RequestBody Widget widget, @PathVariable("lessonId") int lessonId) {
 		Optional<Lesson> data = lessonRepository.findById(lessonId);
 		if (data.isPresent()) {
-			Lesson lsn =data.get();
+			Lesson lsn = data.get();
 			widget.setLesson(lsn);
 			repository.save(widget);
 		}
 
-	return null;
-}
+		return null;
+	}
 
 }
