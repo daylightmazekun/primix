@@ -1,5 +1,6 @@
 package com.primix.service;
 
+<<<<<<< HEAD
 import java.util.List;
 import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
@@ -131,5 +132,27 @@ public class UserService {
 	public void logout(@RequestBody User user, HttpSession session) {
 		session.invalidate();
 	}
+=======
+import javax.servlet.http.HttpSession;
+import com.primix.respositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class UserService{
+
+    @Autowired
+    UserRepository userRepository;
+    @Autowired
+    private HttpSession session;
+
+    @DeleteMapping("/api/user/{userId}")
+    public void deleteUser(@PathVariable("userId") int id){
+        userRepository.deleteById(id);
+    }
+    // TODO
+>>>>>>> dde68a256c7b88a9c5ac736e0eca76045ab450e9
 
 }
