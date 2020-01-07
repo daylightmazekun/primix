@@ -1,0 +1,14 @@
+{
+  "name": "electron-mir",
+  "version": "1.0.0",
+  "description": "a decktop application demo",
+  "main": "main.js",
+  "scripts": {
+    "test": "testing"
+  },
+  "keywords": [
+    "demo"
+  ],
+  "author": "daylightmazekun",
+  "license": "MIT"
+}
